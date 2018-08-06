@@ -1,0 +1,20 @@
+--- # Ansible Apache Installation Playbook
+- hosts: apacheweb
+  user: ansible
+  become: true
+  gather_facts: false
+  tasks:
+      - name: Start Installation Log
+        raw: /bin/date > ~/start.log
+      - name: Install Apache
+        yum: name=httpd state=installed
+      - name: Restart Apache
+        service: name=httpd state=restarted
+      - name: Check Apache
+        command: systemctl status httpd
+        register: result
+      - debug: var=result
+      - name: List Installed Packages
+        raw: yum list installed > ~/install.log
+      - name: Stop Installation Log
+        raw: /bin/date > ~/stop.log

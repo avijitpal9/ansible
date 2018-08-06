@@ -1,0 +1,18 @@
+--- #UNTIL EXAMPLE
+- hosts: apacheweb
+  user: ansible
+  connection: ssh
+  become: true
+  gather_facts: false
+  tasks:
+      - name: Install HTTPD
+        yum: name=httpd state=installed
+      - name: Start HTTPD Service
+        service: name=httpd state=started
+      - name: HTTPD Service Check
+        shell: systemctl status httpd
+        register: result
+        until: result.stdout.find("active (running)") != -1
+        retries: 3
+        delay: 3
+      - debug: var=result

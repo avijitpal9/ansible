@@ -1,0 +1,8 @@
+- hosts: apacheweb
+  vars:
+      control_server: master1.internal
+  vars_files:
+      - vars.yml
+  tasks:
+      - name: Install lynx on apacheweb
+        yum: pkg=lynx state=installed update_cache=true

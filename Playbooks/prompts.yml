@@ -1,0 +1,16 @@
+--- # PROMPTS EXAMPLE
+- hosts: apacheweb
+  user: ansible
+  become: true
+  connection: ssh
+  gather_facts: false
+  vars:
+      playbook_version: 0.1
+  vars_prompt:
+      - name: pkgtoinstall
+        prompt: Package to Install ?
+        default: telnet
+        private: no
+  tasks:
+      - name: Install Package {{ pkgtoinstall }}
+        yum: name={{ pkgtoinstall }} state=installed

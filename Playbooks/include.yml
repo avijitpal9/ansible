@@ -1,0 +1,13 @@
+--- #INCLUDE PLAYS EXAMPLE
+- hosts: apacheweb
+  user: ansible
+  become: true
+  connection: ssh
+  gather_facts: false
+  tasks:
+      - include: plays/packages.yml
+      - name: Verify Packages
+        command: yum list installed {{ item }}
+        with_items:
+            - telnet
+            - httpd

@@ -1,0 +1,9 @@
+--- #ANSIBLE PASS VARIABLES
+- hosts: "{{ host }}"
+  user: "{{ user }}"
+  become: true
+  connection: ssh
+  gather_facts: false
+  tasks:
+      - name: Install Package "{{ pkg_name }}"
+        yum: name="{{ pkg_name }}" state=installed

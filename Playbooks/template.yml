@@ -1,0 +1,13 @@
+--- #JINJA2 TEMPLATE EXAMPLE
+- hosts: apacheweb
+  user: ansible
+  connection: ssh
+  become: true
+  gather_facts: true
+  vars:
+      connType: SFTP
+      userName: test
+      userPass: test123
+  tasks:
+      - name: Install Configuration File
+        template: src=conf/data.conf.j2 dest=/home/ansible/data.conf owner=ansible group=ansible mode=750

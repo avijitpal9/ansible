@@ -1,0 +1,4 @@
+- name: Install Telnet
+  yum: name=telnet state=installed
+- name: Install HTTPD
+  yum: name=httpd state=installed

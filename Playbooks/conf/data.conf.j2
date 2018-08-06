@@ -1,0 +1,14 @@
+<Connection>
+  ConnectionType {{ connType }}
+</Connection>
+<AccountInfo>
+  UserName {{ userName }}
+  Password {{ userPass }}
+</AccountInfo>
+<Distribution>
+{% if ansible_os_family=='Debian' %}
+  Debian
+{% else %}
+  Redhat
+{% endif %}
+</Distribution>

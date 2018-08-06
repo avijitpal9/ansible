@@ -1,0 +1,10 @@
+--- # DELEGATE TO FUNCTION DEMO
+- hosts: apacheweb
+  user: ansible
+  become: true
+  connection: ssh
+  gather_facts: false
+  tasks:
+      - name: Run Remote Ping
+        raw: ping -c 4 node2.internal > /tmp/ping.out
+        delegate_to: 127.0.0.1

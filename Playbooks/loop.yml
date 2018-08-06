@@ -1,0 +1,14 @@
+--- #LOOP EXAMPLE
+- hosts: apacheweb
+  user: ansible
+  become: true
+  gather_facts: false
+  connection: ssh
+  tasks:
+      - name: Create Users
+        user:
+            name: "{{ item }}"
+            state: present
+        with_items:
+            - rob
+            - john

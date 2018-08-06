@@ -1,0 +1,20 @@
+--- # ANSIBLE TAGS EXAMPLE
+- hosts: apacheweb
+  user: ansible
+  become: true
+  gather_facts: false
+  tasks:
+      - name: Install Apache
+        yum: name=httpd state=installed
+        tags:
+            - install
+      - name: Restart Apache
+        service: name=httpd state=restarted
+        tags:
+            - restart
+      - name: Check Apache
+        command: systemctl status httpd
+        register: result
+        tags:
+            - verify
+            - check
