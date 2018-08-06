@@ -1,5 +1,6 @@
 --- # MyFirstPlaybook for Ansible Tower
-- name: tower
+- host: apacheweb
+  user: ansible
   become: true
   connection: ssh
   gather_facts: true
