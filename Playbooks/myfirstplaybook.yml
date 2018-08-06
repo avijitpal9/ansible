@@ -1,17 +1,11 @@
 --- # MyFirstPlaybook
-- hosts: apacheweb
+- hosts: all
   user: ansible
   become: true
   connection: ssh
   gather_facts: true
   vars:
       playbook_version: 0.1
-  vars_files:
-      - conf/copyright.yml
-      - conf/webdefaults.yml
-  vars_prompt:
-      - name: web_domain
-        prompt: Web Domain
   tasks:
       - name: Install Apache HTTPD
         yum:
