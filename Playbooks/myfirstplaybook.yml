@@ -1,5 +1,5 @@
 --- # MyFirstPlaybook
-- hosts: all
+- hosts: apacheweb
   user: ansible
   become: true
   connection: ssh
