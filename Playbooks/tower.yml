@@ -1,5 +1,5 @@
 --- # MyFirstPlaybook for Ansible Tower
-- host: apacheweb
+- host: all
   user: ansible
   become: true
   connection: ssh
