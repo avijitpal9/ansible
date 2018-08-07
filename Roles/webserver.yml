@@ -1,0 +1,8 @@
+--- #Webserver Plabook Master File
+- hosts: apacheweb
+  user: ansible
+  become: true
+  connection: ssh
+  gather_facts: true
+  roles:
+      - webservers
