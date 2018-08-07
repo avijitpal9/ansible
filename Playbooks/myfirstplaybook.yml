@@ -1,4 +1,4 @@
---- # MyFirstPlaybook
+--- # MyFirstPlaybook 
 - hosts: all
   user: ansible
   become: true
