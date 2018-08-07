@@ -1,2 +1,2 @@
 - name: Restart HTTPD
-  service: name=ttpd state=restared
+  service: name=httpd state=restarted
