@@ -1,2 +1,4 @@
 # Ignore Ansible Retry Files
 *.retry
+.vagrant
+ansible-scripts
